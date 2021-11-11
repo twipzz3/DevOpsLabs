@@ -1,0 +1,4 @@
+lab1/.vagrant/
+lab2/.vagrant/
+lab3/.vagrant/
+lab4/.vagrant/
