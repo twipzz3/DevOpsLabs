@@ -1,8 +1,11 @@
-#!/bin/bas
+#!/bin/bash
 sudo useradd adminuser
-sudo usermod -aG sudo adminuser
+echo adminuser | passwd adminuser --stdin
+sudo usermod -aG wheel adminuser
 
 sudo useradd poweruser
-sudo bash -c 'echo "poweruser ALL=(ALL:ALL) /sbin/iptables" >> /etc/sudoers'
-usermod -aG adminuser poweruser
-sudo find /home/ -perm /640
+echo poweruser | passwd poweruser --stdin     
+sudo usermod -aG root poweruser
+
+setfacl -m g:poweruser:rx /home/adminuser
+find / -perm /4000
