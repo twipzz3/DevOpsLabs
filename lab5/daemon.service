@@ -1,0 +1,9 @@
+[Unit]
+Description=DaemonDevOps
+
+[Service]
+ExecStart=/usr/bin/daemon/daemon.sh
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
